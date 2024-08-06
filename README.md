@@ -49,13 +49,12 @@ field.removeObject(field.getObject(x,y));
 
 
 ## Verwendete Tools
-* Programmiersprache: Java (<https://www.oracle.com/de/java/>)
+* Programmiersprache: Java 
 * GUI-Toolkit: libGDX (<https://libgdx.com/>)
-* Diagramm-Editor: Visual Paradigm Online (<https://online.visual-paradigm.com/de/login.jsp>)
-* Projektmanagement-/Planungs-Tool: Jira Software (<https://www.atlassian.com/de/software/jira>)
-* GUI-Prototyping: Figma (<https://www.figma.com/de/>)
-* Versionsverwaltung: GitLab (<https://git.uni-wuppertal.de/2118411/team-bomberman-no.1>)
-* Entwicklungsumgebung: IntelliJ IDEA (<https://www.jetbrains.com/de-de/idea/>)
+* Diagramm-Editor: Visual Paradigm Online 
+* Projektmanagement-/Planungs-Tool: Jira Software 
+* GUI-Prototyping: Figma 
+* Entwicklungsumgebung: IntelliJ IDEA 
 * IntelliJ-Plugin: Prettier (<https://plugins.jetbrains.com/plugin/10456-prettier>)
 * Coding Style Guides: (<https://google.github.io/styleguide/javaguide.html>)
 
