@@ -1,0 +1,77 @@
+sourceCompatibility = 1.8
+sourceSets.main.java.srcDirs = [ "src/com/mygdx/bomberman" ]
+sourceSets.main.resources.srcDirs = ["../assets"]
+sourceSets.test.java.srcDirs = ["src/test/java"]
+
+project.ext.mainClassName = "com.mygdx.bomberman.DesktopLauncher"
+project.ext.assetsDir = new File("../assets")
+
+dependencies {
+    // JUnit und Mockito
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+    testImplementation 'org.mockito:mockito-core:3.10.0'
+
+    // LibGDX-Test-Abhängigkeiten
+    testImplementation "com.badlogicgames.gdx:gdx-backend-headless:1.9.14"
+    testImplementation "com.badlogicgames.gdx:gdx:1.9.14"
+    testImplementation "com.badlogicgames.gdx:gdx-platform:1.9.14:natives-desktop"
+    testImplementation "com.badlogicgames.gdx:gdx-box2d-platform:1.9.14:natives-desktop"
+    testImplementation "com.badlogicgames.gdx:gdx-bullet-platform:1.9.14:natives-desktop"
+    testImplementation "com.badlogicgames.gdx:gdx-backend-headless:1.9.14"
+
+    // Additional dependencies
+    testImplementation 'junit:junit:5.+'
+    testImplementation 'org.mockito:mockito-core:3.11.2'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+
+
+tasks.register('run', JavaExec) {
+    dependsOn classes
+    mainClass = project.mainClassName
+    classpath = sourceSets.main.runtimeClasspath
+    standardInput = System.in
+    workingDir = project.assetsDir
+    ignoreExitValue = true as JavaExecSpec
+
+    def osName = System.getProperty('os.name').toLowerCase()
+
+    if (osName.contains('mac os')) {
+        // Erforderlich, um auf macOS auszuführen
+        jvmArgs += "-XstartOnFirstThread"
+    }
+}
+
+
+
+tasks.register('debug', JavaExec) {
+    dependsOn classes
+    mainClass = project.mainClassName
+    classpath = sourceSets.main.runtimeClasspath
+    standardInput = System.in
+    workingDir = project.assetsDir
+    ignoreExitValue = true
+    debug = true
+}
+
+tasks.register('dist', Jar) {
+    duplicatesStrategy(DuplicatesStrategy.EXCLUDE)
+    manifest {
+        attributes 'Main-Class': project.mainClassName
+    }
+    dependsOn configurations.runtimeClasspath
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    with jar
+}
+
+
+dist.dependsOn classes
+
+eclipse.project.name = appName + "-desktop"
