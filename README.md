@@ -1,5 +1,12 @@
-# 💣Team Bomberman No.1💣
-
+# 💣Bomberman💣
+Teammitglieder : 
+- Lujeine Abed
+- Daniel Voicu-Hasenmayer
+- Nebi Yöngül
+- Roshan Jeyachandran
+- Dudunur Isik
+- Ernest Berezovskyy
+  
 ## Beschreibung
 Dieses Projekt ist eine Implementierung des klassischen Arcade-Spiel Bomberman,
 bei dem die Spieler durch ein Labyrinth navigieren, Bomben platzieren, um Hindernisse zu zerstören
