@@ -1,11 +1,5 @@
-# 💣Bomberman💣
-Teammitglieder : 
-- Lujeine Abed
-- Daniel Voicu-Hasenmayer
-- Nebi Yöngül
-- Roshan Jeyachandran
-- Dudunur Isik
-- Ernest Berezovskyy
+# 💣Bomberman - Team-Project💣
+
   
 ## Beschreibung
 Dieses Projekt ist eine Implementierung des klassischen Arcade-Spiel Bomberman,
